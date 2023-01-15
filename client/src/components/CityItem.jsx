@@ -1,9 +1,7 @@
-import Card from "../UI/Card"
 import classes from "./CityItem.module.css"
 
 function CityItem () {
     return (
-        // <Card>
         <div className={classes.card}>
             <div className={classes.image}>
                 <img src="https://img.veenaworld.com/wp-content/uploads/2021/09/Rajasthan-scaled.jpg" />
@@ -16,7 +14,6 @@ function CityItem () {
                 </div>
             </div>
         </div>
-        // </Card>
     )
 }
 
