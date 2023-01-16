@@ -1,6 +1,7 @@
 import Header from "../components/landing-page/Header"
 import Carousel from "../components/landing-page/Carousel"
 import Footer from "../components/landing-page/Footer"
+import cities from "../store/city-names"
 
 function LandingPage () {
     return (
