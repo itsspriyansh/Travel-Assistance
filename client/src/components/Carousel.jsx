@@ -15,24 +15,24 @@ export default class AutoPlay extends Component {
       cssEase: "linear"
     };
     return (
-      <div>
+      <div className="my-4">
         <Slider {...settings}>
           <div className=" m-2">
             <CityItem />
           </div>
-          <div>
+          <div lassName=" m-2">
             <CityItem />
           </div>
-          <div>
+          <div lassName=" m-2">
             <CityItem />
           </div>
-          <div>
+          <div lassName=" m-2">
             <CityItem />
           </div>
-          <div>
+          <div lassName=" m-2">
             <CityItem />
           </div>
-          <div>
+          <div lassName=" m-2">
             <CityItem />
           </div>
         </Slider>

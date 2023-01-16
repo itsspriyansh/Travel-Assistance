@@ -7,7 +7,7 @@ function CityItem () {
         <div className={classes.card}>
             <div className={classes.image}>
                 <img src="https://img.veenaworld.com/wp-content/uploads/2021/09/Rajasthan-scaled.jpg" />
-                {/* <div className={classes.backdrop}></div> */}
+                <div className={classes.backdrop}></div>
             </div>
             <div>
                 <p className="flex justify-center mt-4 mb-4">Jaipur</p>
