@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import CityItem from "../components/CityItem";
+import CityItem from "./CityItem";
 
 export default class AutoPlay extends Component {
   render() {
     const settings = {
       dots: true,
       infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 5,
       slidesToScroll: 1,
       autoplay: true,
       speed: 2000,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 2000,
       cssEase: "linear"
     };
     return (
       <div>
         <Slider {...settings}>
-          <div>
+          <div className=" m-2">
             <CityItem />
           </div>
           <div>
@@ -40,3 +40,4 @@ export default class AutoPlay extends Component {
     );
   }
 }
+
