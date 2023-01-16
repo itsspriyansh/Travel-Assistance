@@ -1,0 +1,30 @@
+
+.list{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 15px 5px;
+    gap: 59px;
+    
+   
+    width: 711px;
+    height: 28px;
+    left: calc(50% - 711px/2 + 15px);
+    top: calc(50% - 28px/2 - 779px);
+    color: aqua;
+}
+
+.item{
+    width: 54px;
+height: 23px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 19px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #000000;
+}
