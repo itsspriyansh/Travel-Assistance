@@ -18,14 +18,16 @@ app.get('/restaurants/:city',(req,res)=>{
     async (response) => {
         const html = response.data;
         // console.log(html);
-        const details = [];
+        const name = [];
+        const review = [];
+        const image_link = [];
         const $ = cheerio.load(html);
 
         // restaurant name correct
         $('.box-ristorante-titolo').each((i, el) => {
             const item = $(el).find('strong').text();
             // console.log(item);
-            details.push( item);
+            name.push( item);
         });
 
         // restaurant review out of 100 correct
@@ -37,18 +39,18 @@ app.get('/restaurants/:city',(req,res)=>{
 
         // restaurant review count correct 
         // if we use this then no need to use above one
-        // $('.box-ristorante-voto').each((i, el) => {
-        //     const item = $(el).text();
-        //     // console.log(item);
-        //     details.push({item});
-        // });
+        $('.box-ristorante-voto').each((i, el) => {
+            const item = $(el).text();
+            // console.log(item);
+            review.push(item);
+        });
 
         // // restaurant image link  correct
-        // $('.box-ristorante-immagine').each((i,el)=>{
-        //     const item = $(el).attr('data-src');
-        //     // console.log(item);
-        //     details.push({item});
-        // })
+        $('.box-ristorante-immagine').each((i,el)=>{
+            const item = $(el).attr('data-src');
+            // console.log(item);
+            image_link.push(item);
+        })
 
 
         
@@ -64,9 +66,7 @@ app.get('/restaurants/:city',(req,res)=>{
         //     const item = $(el).find('box-ristorante-tag').text();
         //     console.log(item);
         // })
-
-        console.log(details);
-        res.json(details);
+        res.json(image_link);
     })  
         .catch((error) => {
         console.log(error);
