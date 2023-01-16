@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import CityItem from "./CityItem";
 
 export default class AutoPlay extends Component {
+
   render() {
     const settings = {
       dots: true,
@@ -20,19 +21,19 @@ export default class AutoPlay extends Component {
           <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
         </Slider>

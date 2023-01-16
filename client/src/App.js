@@ -1,28 +1,24 @@
-import Carousel from "./components/Carousel"
-import Header from './components/Header';
 import './App.css';
-import Footer from "./components/Footer";
+import LandingPage from "./pages/LandingPage";
+import { Route, Routes } from 'react-router-dom';
+import Hospitals from './pages/Hospitals';
+import Hotels from './pages/Hotels';
+import Restaurants from './pages/Restaurants';
+import About from './pages/About';
+import PlacesOfInterests from './pages/PlacesOfInterests';
+
 
 function App() {
   return (
     <div>
-      <Header />
-      <div className=" h-20 items-center flex justify-center bg-gray-300">Explore</div>
-      <main className=" bg-gray-300">
-        <div className=" mb-10 py-10 px-20 bg-white"> 
-        <p className="flex justify-center">Heritage Sites</p>
-          <Carousel /> 
-        </div>
-        <div className=" mb-10 py-10 px-20 bg-white"> 
-        <p className="flex justify-center">Heritage Sites</p>
-          <Carousel /> 
-        </div>
-        <div className=" mb-10 py-10 px-20 bg-white"> 
-        <p className="flex justify-center">Heritage Sites</p>
-          <Carousel /> 
-        </div>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/hospitals" element={<Hospitals />} />
+        <Route paht="/places-of-interests" element={<PlacesOfInterests />} />
+      </Routes>
     </div>
   );
 }

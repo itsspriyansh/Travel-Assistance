@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import classes from "./CityItem.module.css"
 
 function CityItem () {
@@ -10,7 +11,7 @@ function CityItem () {
             <div>
                 <p className="flex justify-center mt-4 mb-4">Jaipur</p>
                 <div className="flex justify-center">
-                <button className=" rounded-full bg-white px-8 py-2">Discover</button>
+                <button className=" rounded-full bg-white px-8 py-2"><Link to="/about">Discover</Link></button>
                 </div>
             </div>
         </div>
