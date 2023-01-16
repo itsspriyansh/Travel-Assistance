@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import CityItem from "./CityItem";
 
 export default class AutoPlay extends Component {
+
   render() {
     const settings = {
       dots: true,
