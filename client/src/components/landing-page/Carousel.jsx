@@ -20,19 +20,19 @@ export default class AutoPlay extends Component {
           <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
-          <div lassName=" m-2">
+          <div className=" m-2">
             <CityItem />
           </div>
         </Slider>
