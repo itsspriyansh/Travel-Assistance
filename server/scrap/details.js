@@ -10,17 +10,17 @@ app.get('/',(req,res)=>{
 })
 app.get('/restaurants/:city',(req,res)=>{
 
-    // const city = "jaipur";
-     city = req.params.city;
+    city = req.params.city;
     const URL = `https://www.sluurpy.in/${city}/restaurants`;
     axios.get(URL)
     .then(
     async (response) => {
         const html = response.data;
-        // console.log(html);
         const name = [];
         const review = [];
         const image_link = [];
+        const see_more =[];
+        const tags = [];
         const $ = cheerio.load(html);
 
         // restaurant name correct
@@ -30,15 +30,8 @@ app.get('/restaurants/:city',(req,res)=>{
             name.push( item);
         });
 
-        // restaurant review out of 100 correct
-        // $('.box-ristorante-voto').each((i, el) => {
-        //     const item = $(el).find('strong').text();
-        //     // console.log(item);
-        //     details.push({item});
-        // });
 
         // restaurant review count correct 
-        // if we use this then no need to use above one
         $('.box-ristorante-voto').each((i, el) => {
             const item = $(el).text();
             // console.log(item);
@@ -52,21 +45,26 @@ app.get('/restaurants/:city',(req,res)=>{
             image_link.push(item);
         })
 
-
+        // book restaurant button corect
+        $('.box-ristorante').each((i,el)=>{
+            const item = $(el).find('a').attr('href');
+            // console.log(item);
+            see_more.push(item);
+        });
         
+        // restaurant tags 
+        $('.box-ristorante-tags').each((i,el)=>{
+            const item = $(el).find('.box-ristorante-tag');
+            const list =[];
+            item.each((i,el)=>{
+                const tag = $(el).text();
+                list.push(tag);
+            })
+            tags.push(list);
+        })
 
-        // book restaurant button incorect
-        // $('.col-xs-12 col-md-6 box-ristorante').each((i,el)=>{
-        //     const item = $(el).attr('href');
-        //     console.log(item);
-        // });
-        // may be because of some card doesnot have image so it might be not working
 
-        // $('.box-ristorante-tags').each((i,el)=>{
-        //     const item = $(el).find('box-ristorante-tag').text();
-        //     console.log(item);
-        // })
-        res.json(image_link);
+        res.json(tags);
     })  
         .catch((error) => {
         console.log(error);
