@@ -1,7 +1,8 @@
-function Hotles () {
+function Hotels () {
     return (
         <div></div>
     )
 }
 
-export default Hotles
+export default Hotels
+

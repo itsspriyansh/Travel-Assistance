@@ -1,10 +1,11 @@
+import classes from "./Layout.module.css"
+
 function Layout (props) {
     return (
-        <div className=" w-5/6 bg-white h-full">
+        <div className={classes.layout}>
             {props.children}
         </div>
     )
 }
 
 export default Layout
-
