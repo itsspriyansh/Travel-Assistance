@@ -16,6 +16,7 @@ app.get('/restaurants/:city',(req,res)=>{
     .then(
     async (response) => {
         const html = response.data;
+        const total=[];
         const name = [];
         const review = [];
         const image_link = [];
@@ -39,6 +40,7 @@ app.get('/restaurants/:city',(req,res)=>{
         });
 
         // // restaurant image link  correct
+        // all restaurants don't have image link
         $('.box-ristorante-immagine').each((i,el)=>{
             const item = $(el).attr('data-src');
             // console.log(item);

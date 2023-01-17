@@ -1,10 +1,17 @@
 import Layout from "../components/city-page/Layout"
+
 import SearchBar from "../components/city-page/SearchBar"
 import Footer from "../components/landing-page/Footer"
+
+import Navbar  from "../components/landing-page/Navbar"
+
+import Weather from "../components/landing-page/Weather"
+
 
 function About () {
     return (
         <Layout>
+
             <div className=" flex flex-col justify-between h-full ">
             <SearchBar />
             <div className=" h-full relative">
@@ -16,6 +23,11 @@ function About () {
                 </div>
             </div>
             <Footer />
+
+            <div>
+                <Navbar />
+                <Weather />
+                
             </div>
         </Layout>
     )
