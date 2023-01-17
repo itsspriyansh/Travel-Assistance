@@ -1,0 +1,10 @@
+ul {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    margin: 0 auto;
+}
+
+li {
+
+}

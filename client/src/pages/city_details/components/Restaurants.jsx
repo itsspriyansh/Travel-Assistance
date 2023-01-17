@@ -1,7 +1,12 @@
-function Restaurants () {
+import Citysearched from "../CitySearched"
+
+function About () {
     return (
-        <div></div>
+        <Citysearched>
+            
+        </Citysearched>
     )
 }
 
-export default Restaurants
+export default About
+

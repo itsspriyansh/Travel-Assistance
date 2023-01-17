@@ -1,10 +1,12 @@
-function PlacesOfInterests () {
-    return (
-        <div>
+import Citysearched from "../CitySearched"
 
-        </div>
+function About () {
+    return (
+        <Citysearched>
+            
+        </Citysearched>
     )
 }
 
-export default PlacesOfInterests
+export default About
 
