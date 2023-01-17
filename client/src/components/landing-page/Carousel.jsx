@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import CityItem from "./CityItem";
+import {nanoid} from "nanoid"
 
 export default class AutoPlay extends Component {
 
@@ -15,27 +16,21 @@ export default class AutoPlay extends Component {
       autoplaySpeed: 2000,
       cssEase: "linear"
     };
+
+    const cityList = this.props.dest
+    console.log (cityList)
     return (
       <div className="my-4">
         <Slider {...settings}>
-          <div className=" m-2">
-            <CityItem />
-          </div>
-          <div className=" m-2">
-            <CityItem />
-          </div>
-          <div className=" m-2">
-            <CityItem />
-          </div>
-          <div className=" m-2">
-            <CityItem />
-          </div>
-          <div className=" m-2">
-            <CityItem />
-          </div>
-          <div className=" m-2">
-            <CityItem />
-          </div>
+          
+          {cityList.map(city => {
+            return (
+              <div className="m-2">
+                <CityItem name={city.city} image={city.image} key={nanoid} />
+              </div>
+            )
+          })}
+
         </Slider>
       </div>
     );
