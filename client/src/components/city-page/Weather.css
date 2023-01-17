@@ -1,7 +1,8 @@
 .weather {
     height: 30rem;
     width: 100%;
-    background-color: gray;
+    background: linear-gradient(197.5deg, #423F4B 24.79%, rgba(66, 63, 75, 0.764087) 54.51%, rgba(66, 63, 75, 0) 110.25%);
     border-radius: 20px;
+    color: white;
 }
 

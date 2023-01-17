@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       fontFamily : {
         sofia : "sofia",
+      },
+      colors : {
+        cyangray : "#E8ECF4",
       }
     },
   },

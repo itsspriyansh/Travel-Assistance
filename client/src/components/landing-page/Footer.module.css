@@ -1,6 +1,6 @@
 .footer {
     background: #09002C;
-    height: 18rem;
+    min-height: 18rem;
     margin-top: 5rem;
     padding-top: 3rem;
 }
