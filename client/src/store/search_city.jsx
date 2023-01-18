@@ -6,6 +6,8 @@ const useCityStore = create((set) => ({
     temp: "",
     latitude: "",
     longitude: "",
+    restaurants : [],
+    addRestaurant : (restaurant) => set(state => [...state.restaurants, restaurant]),
     addCity: (city) => set((state) => ({ city_name: city })),
     addTemp :(temp)=> set((state) => ({ temp: temp })),
     addLatitude :(latitude)=> set((state) => ({ latitude: latitude })),

@@ -37,8 +37,11 @@ function App() {
       axios.get(url).then((response)=>{
         setWeather(response.data)
         console.log(response.data)
-      }).then(changeIsLoading())
+      })
+      // .then(changeIsLoading())
+      changeIsLoading()
 
+      
   },[city.city])
     
   return (

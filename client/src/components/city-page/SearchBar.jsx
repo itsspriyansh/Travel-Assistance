@@ -20,7 +20,7 @@ function SearchBar () {
           console.log("searchedCity");
           addCity({city: city});
           clear();
-        //   resetIsLoading();
+          resetIsLoading();
           navigate("/about");
         }
     }

@@ -18,7 +18,6 @@ export default class AutoPlay extends Component {
     };
 
     const cityList = this.props.dest
-    console.log (cityList)
     return (
       <div className="my-4">
         <Slider {...settings}>
@@ -26,7 +25,7 @@ export default class AutoPlay extends Component {
           {cityList.map(city => {
             return (
               <div className="m-2">
-                <CityItem name={city.city} image={city.image} key={nanoid} />
+                <CityItem name={city.city} image={city.image} key={nanoid()} />
               </div>
             )
           })}
