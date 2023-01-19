@@ -3,6 +3,7 @@ import useCityStore from "../../../store/search_city"
 import { getallrestaurants } from "../../../utils/scrapped_data"
 import { useState } from "react";
 import { useEffect } from "react";
+import RestaurantCard from "./RestaurantCard.jsx";
 
 function Restaurant () {
 
@@ -16,19 +17,34 @@ function Restaurant () {
             setFetchedRestaurants(data)
         })();
     },[])
-    // const fetchedRestaurants = getallrestaurants(city.city)
-    // const addRestaurant = useCityStore(state => state.addRestaurant)
-    // const restaurants = useCityStore(state => state.restaurants)
-    // setTimeout (()=>{
-        // fetchedRestaurants.map(restaurant => addRestaurant(restaurant))
-    // }, 2000)
+    
+    
     if (fetchedRestaurants===null) {
         return <Citysearched>
+            <div className="flex justify-center mt-10">
             loading...
+            </div>
         </Citysearched>
     }
-    // console.log ("list: " + fetchedRestaurants)
-    console.log(fetchedRestaurants);
+    
+    var result = [];
+     for (var i = 0; i < fetchedRestaurants.length; i++) {
+    result.push( <RestaurantCard
+        name = {fetchedRestaurants[i].name}
+        review = {fetchedRestaurants[i].review}
+        see_more ={fetchedRestaurants[i].see_more}
+        tags={fetchedRestaurants[i].tags}
+      />);
+  }
+  
+  const final = result.map((x)=>{
+    return(
+      <div>{x}</div>
+    )
+  })
+
+
+
     return (
         <Citysearched>
         {/* <li className={classes.item}>
@@ -51,7 +67,8 @@ function Restaurant () {
                 )
             })
         } */}
-        {JSON.stringify(fetchedRestaurants)}
+        {final}
+        {/* // {JSON.stringify(fetchedRestaurants)} */}
         </Citysearched>
     )
 }
