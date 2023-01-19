@@ -13,7 +13,7 @@ function Weather() {
     return (
       <div className='weather flex flex-col justify-start items-center gap-5 pt-16'>
         <h1 className='temp font-impact text-5xl'>{Math.floor(temp.temp - 273.5)}°C</h1>
-        <p className='day'> {description.description} </p>
+        <p className='day'> {description} </p>
       </div>
     )
 

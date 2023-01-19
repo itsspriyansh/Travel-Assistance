@@ -4,6 +4,9 @@ import { getallrestaurants } from "../../../utils/scrapped_data"
 import { useState } from "react";
 import { useEffect } from "react";
 import RestaurantCard from "./RestaurantCard.jsx";
+import "./Restaurant.css";
+import { CircularProgress } from "@mui/material"
+
 
 function Restaurant () {
 
@@ -12,63 +15,40 @@ function Restaurant () {
     useEffect(()=>{
         (async()=>{
             const data = await getallrestaurants(city.city)
-            console.log(data)
-
             setFetchedRestaurants(data)
         })();
     },[])
     
     
     if (fetchedRestaurants===null) {
-        return <Citysearched>
+        return (
+        <Citysearched>
             <div className="flex justify-center mt-10">
-            loading...
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
         </Citysearched>
+        )
     }
-    
-    var result = [];
-     for (var i = 0; i < fetchedRestaurants.length; i++) {
-    result.push( <RestaurantCard
-        name = {fetchedRestaurants[i].name}
-        review = {fetchedRestaurants[i].review}
-        see_more ={fetchedRestaurants[i].see_more}
-        tags={fetchedRestaurants[i].tags}
-      />);
-  }
-  
-  const final = result.map((x)=>{
-    return(
-      <div>{x}</div>
-    )
-  })
-
 
 
     return (
         <Citysearched>
-        {/* <li className={classes.item}>
-            <div className={classes.image}>
-                <img src={url}/>
+        <div className="container">
+            <div className="List">
+            {
+                fetchedRestaurants.map(rest => {
+                    return (
+                        <RestaurantCard 
+                        name = {rest.name}
+                        review = {rest.review}
+                        see_more ={rest.see_more}
+                        tags={rest.tags}
+                        />
+                    )
+                })
+            }
             </div>
-            <div className={classes.content}>
-                <p>hello</p>
-                <p>hello</p>
-            </div>
-            <div className={classes.actions}>
-                <button>Info</button>
-                <button id={classes.buttonCart}>button</button>
-            </div>
-        </li> */}
-        {/* {
-            fetchedRestaurants.map(rest => {
-                return (
-                    <div>{rest.name}</div>
-                )
-            })
-        } */}
-        {final}
-        {/* // {JSON.stringify(fetchedRestaurants)} */}
+        </div>
         </Citysearched>
     )
 }

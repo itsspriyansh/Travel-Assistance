@@ -5,6 +5,7 @@ import Layout from "../../components/city-page/Layout";
 import Footer from "../../components/landing-page/Footer";
 import Weather from "../../components/city-page/Weather";
 import useCityStore from "../../store/search_city";
+import "./citySearched.css"
 
 export default function Citysearched (props) {
 
@@ -14,7 +15,7 @@ export default function Citysearched (props) {
     return(
         <>  
         <Layout>
-            <div className=" flex flex-col justify-between h-full ">
+            <div className=" flex flex-col justify-between">
             <SearchBar />
                 <div className=" h-full relative">
                     <div className=" bg-red-600 w-full h-96 overflow-hidden">
@@ -23,9 +24,9 @@ export default function Citysearched (props) {
                     <div className="h-96 w-full absolute bg-black opacity-50 z-10 top-0 flex justify-center items-center">
                         <p className=" text-opacity-100 text-white font-sofia text-8xl">{newcityName}</p>
                     </div>
-                    <div className="flex justify-between mx-3 my-3">
+                    <div className="outerbox flex justify-between mx-3 my-3">
 
-                        <div className=" w-9/12 mx-auto p-5 box-border rounded-2xl bg-cyangray">
+                        <div className=" box w-9/12 mx-auto p-5 box-border rounded-2xl bg-cyangray overflow-x-scroll">
                             <Navigation />
                             {props.children}
                         </div>

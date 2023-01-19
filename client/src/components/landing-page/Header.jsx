@@ -25,7 +25,7 @@ function Header () {
 
     const clear = () => setCity("");
     // console.log(city);
-  
+
     return (
         <header className={classes.container}>
             <div className=" min-w-full h-96">
