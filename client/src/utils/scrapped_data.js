@@ -3,18 +3,13 @@ import axios from "axios";
 // const city   = "jaipur";
 import {useCityStore} from "../store/search_city.jsx";
 
-const addRestaurant = useCityStore(state => state.addRestaurant)
-
-const getallrestaurants = (city)=>{
+const getallrestaurants = async(city)=>{
     // const city = useCityStore((state) => state.city);
-    axios.get(`http://localhost:5000/restaurants/${city}`)
+    return axios.get(`http://localhost:5000/restaurants/${city}`)
     .then((response)=>{
         console.log(response.data);
-        const restaurants = response.data;
-        restaurants.map(restaurant => {
-            addRestaurant(restaurant)
-        })
-    });
+        return response.data
+    })
 }
 
 const getallplacestovisit = (city)=>{
@@ -24,5 +19,6 @@ const getallplacestovisit = (city)=>{
         console.log(response.data);
     });
 }
+
 export {getallrestaurants,getallplacestovisit};
 
