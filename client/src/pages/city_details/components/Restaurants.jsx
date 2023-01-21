@@ -13,17 +13,17 @@ function Restaurant () {
     const city = useCityStore(state => state.city_name);
     const [fetchedRestaurants,setFetchedRestaurants] = useState(null);
     useEffect(()=>{
-        (async()=>{
+        (async ()=>{
             const data = await getallrestaurants(city.city)
             setFetchedRestaurants(data)
         })();
     },[])
-    
-    
+
+
     if (fetchedRestaurants===null) {
         return (
         <Citysearched>
-            <div className="flex justify-center mt-10">
+            <div className="flex justify-center my-10">
             <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
         </Citysearched>
@@ -34,6 +34,7 @@ function Restaurant () {
     return (
         <Citysearched>
         <div className="container">
+        <p className=" text-5xl mb-5 font-sofia">Restaurants</p>
             <div className="List">
             {
                 fetchedRestaurants.map(rest => {

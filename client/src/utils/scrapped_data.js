@@ -4,7 +4,6 @@ import axios from "axios";
 import {useCityStore} from "../store/search_city.jsx";
 
 const getallrestaurants = async(city)=>{
-    // const city = useCityStore((state) => state.city);
     return axios.get(`http://localhost:5000/restaurants/${city}`)
     .then((response)=>{
         console.log(response.data);
@@ -14,11 +13,21 @@ const getallrestaurants = async(city)=>{
 
 const getallplacestovisit = (city)=>{
     let URL = `http://localhost:5000/places_to_visit/${city}`;
-    axios.get(URL)
+    return axios.get(URL)
     .then((response)=>{
         console.log(response.data);
+        return response.data
     });
 }
 
-export {getallrestaurants,getallplacestovisit};
+const getCityAbout = (city) => {
+    let URL = `http://localhost:5000/about/${city}`
+    return axios.get(URL)
+    .then (response => {
+        console.log (response.data)
+        return response.data
+    })
+}
+
+export {getallrestaurants, getallplacestovisit, getCityAbout};
 

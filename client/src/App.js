@@ -7,7 +7,6 @@ import Restaurants from './pages/city_details/components/Restaurants';
 import About from './pages/city_details/components/About';
 import PlacesOfInterests from './pages/city_details/components/PlacesOfInterests';
 import useCityStore from './store/search_city';
-import {getallplacestovisit,getallrestaurants} from "./utils/scrapped_data.js";
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -27,10 +26,10 @@ function App() {
         addTemp({temp : response.data.main.temp})
         addLatitude({latitude : response.data.coord.lat})
         addLongitude({longitude : response.data.coord.lon})
-        // setDescription({description : response.data.weather[0].main})
         setDescription(response.data.weather[0].main)
       })
   }, [city.city])
+
 
   return (
     <div>
