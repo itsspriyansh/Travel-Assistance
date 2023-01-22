@@ -46,7 +46,7 @@ export default function Citysearched (props) {
                                 {props.children}
                             </div>
                             <div className=" w-72">
-                                <Weather />
+                                {/* <Weather /> */}
                             </div>
     
                         </div>
