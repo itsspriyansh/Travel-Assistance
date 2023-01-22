@@ -11,6 +11,7 @@ const useCityStore = create((set) => ({
     fetchedAbout : null,
     fetchedRestaurants : null,
     fetchedHotels : null,
+    icon: "",
     addRestaurant : (restaurant) => set(state => [...state.restaurants, restaurant]),
     addCity: (city) => set((state) => ({ city_name: city })),
     addTemp :(temp)=> set((state) => ({ temp: temp })),
@@ -22,6 +23,7 @@ const useCityStore = create((set) => ({
     setFetchedAbout : (data) => set(state => ({ fetchedAbout : data})),
     setFetchedRestaurants : (data) => set(state => ({ fetchedRestaurants : data})),
     setFetchedHotels : (data) => set(state => ({ fetchedHotels : data})),
+    setIcon : (icon)=>set(state => ({icon : icon})),
   }))
 
 export default useCityStore;

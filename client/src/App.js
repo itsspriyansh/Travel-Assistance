@@ -13,6 +13,7 @@ import axios from 'axios';
 function App() {
   const city = useCityStore((state) => state.city_name);
   console.log(city.city);
+  const setIcon = useCityStore(state => state.setIcon)
 
   const addTemp = useCityStore(state => state.addTemp)
   const addLatitude = useCityStore(state => state.addLatitude)
@@ -27,6 +28,7 @@ function App() {
         addLatitude({latitude : response.data.coord.lat})
         addLongitude({longitude : response.data.coord.lon})
         setDescription(response.data.weather[0].main)
+        setIcon(response.data.weather[0].icon)
       })
   }, [city.city])
 
