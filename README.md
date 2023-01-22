@@ -1,10 +1,10 @@
 # Setup
 
-### cd server/scrap
 ```
+cd server/scrap
 nodemon details.js
 ```
-### cd client
 ```
+cd client
 npm start
 ```
