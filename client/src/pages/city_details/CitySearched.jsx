@@ -8,6 +8,7 @@ import useCityStore from "../../store/search_city";
 import { useEffect, useState } from "react";
 import { getCityImages } from "../../utils/scrapped_data";
 import "./citySearched.css"
+import BookTickets from "../../components/city-page/BookTickets";
 
 export default function Citysearched (props) {
 
@@ -24,8 +25,6 @@ export default function Citysearched (props) {
             ctyName.innerText = newcityName
         })()
     }, [cityName])
-
-    console.log (backdrop)
 
 
     if (cityImage == null) {
@@ -80,6 +79,7 @@ export default function Citysearched (props) {
                         </div>
                         <div className=" w-72">
                             <Weather />
+                            <BookTickets />
                         </div>
 
                     </div>
@@ -91,4 +91,3 @@ export default function Citysearched (props) {
     )
 }
 
- 

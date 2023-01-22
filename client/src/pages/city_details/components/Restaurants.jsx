@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import RestaurantCard from "./RestaurantCard.jsx";
 import "./Restaurant.css";
-import { CircularProgress } from "@mui/material"
 
 
 function Restaurant () {
