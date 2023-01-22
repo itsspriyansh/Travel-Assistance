@@ -14,11 +14,14 @@ export default function Citysearched (props) {
     let cityName = useCityStore(state => state.city_name)
     const newcityName = cityName.city.charAt(0).toUpperCase() + cityName.city.slice(1);
     const [cityImage, setCityImage] = useState(null)
+    const [backdrop, setBackdrop] = useState(false)
     
     useEffect (() => {
         (async () => {
             const data = await getCityImages(cityName.city)
             setCityImage(data.imageLinks)
+            const ctyName = document.getElementById("cityName")
+            ctyName.innerText = newcityName
         })()
     }, [cityName])
 
@@ -28,13 +31,13 @@ export default function Citysearched (props) {
             <>  
             <Layout>
                 <div className=" flex flex-col justify-between">
-                <SearchBar />
+                <SearchBar setBackdrop={setBackdrop} />
                     <div className=" bg-white h-full relative box-content pb-12">
                         <div className="w-full h-96 overflow-hidden">
                             <div className=" bg-black h-full w-full"></div>
                         </div>
                         <div className="h-96 w-full absolute bg-black opacity-50 z-10 top-0 flex justify-center items-center">
-                            <p className=" text-opacity-100 text-white font-sofia text-8xl">{newcityName}</p>
+                            <p className=" text-opacity-100 text-white font-sofia text-8xl" id="cityName"></p>
                         </div>
                         <div className="flex justify-between mx-3 my-3">
     

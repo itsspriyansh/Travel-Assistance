@@ -2,6 +2,7 @@ import classes from "./Header.module.css"
 import React from "react";
 import useCityStore from "../../store/search_city";
 import {useNavigate} from "react-router-dom";
+import nameSvg from "./name.svg"
 
 function Header () {
     const [city, setCity] = React.useState("");
@@ -29,7 +30,9 @@ function Header () {
     return (
         <header className={classes.container}>
             <div className=" min-w-full h-96">
-                <div className=" h-3/5"></div>
+                <div className=" h-3/5 flex justify-center pt-8">
+                    <img src={nameSvg} className=" h-36"></img>
+                </div>
                 
                     <input 
                     className=" rounded-full w-5/12 h-12 ml-auto mr-auto block outline-none p-2 text-lg font-light pl-8" 

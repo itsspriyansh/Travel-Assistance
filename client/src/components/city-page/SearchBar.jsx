@@ -1,10 +1,11 @@
 import classes from "./SearchBar.module.css"
 import React from "react";
 import useCityStore from "../../store/search_city";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import logoSvg from "./logo.svg"
 
 
-function SearchBar () {
+function SearchBar (props) {
 
     const [city, setCity] = React.useState("");
     const addCity = useCityStore((state)=> state.addCity);
@@ -16,6 +17,7 @@ function SearchBar () {
         setCity(e.target.value);
         console.log(e.target.value);
     }
+
     const searchLocation = (event) => {
         if(event.key === 'Enter'){
           console.log("searchedCity");
@@ -26,24 +28,34 @@ function SearchBar () {
         }
     }
 
+    // const bookTicketsHandler = () => props.setBackdrop(true)
+
     const clear = () => setCity("");
 
     return (
         <div className={classes.bar}>
         <nav className=" flex justify-between px-16 items-center h-20">
-            <div>icon</div>
+            <div>
+                <Link to="/">
+                <img className=" h-10" src={logoSvg}></img>
+                </Link>
+            </div>
+
+            <div className=" w-5/12 flex justify-around">
+            <p className=" text-white" >Book Tickets</p>    
             <input 
-            className=" rounded-full w-3/12 h-8 outline-none p-2 text-lg font-light pl-8"
+            className=" rounded-full w-8/12 h-8 outline-none p-2 text-lg font-light pl-4"
             onChange={clickHandleChange}
             onKeyPress={searchLocation}
             type="text"
             value={city}
             name="city"
+            placeholder="search..."
             ></input>
+            </div>
         </nav>
         </div>
     )
 }
 
 export default SearchBar
-
