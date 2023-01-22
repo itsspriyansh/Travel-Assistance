@@ -17,7 +17,7 @@ function About () {
 
     if (fetchedCityAbout === null) {
         return (
-            <Citysearched>
+            <Citysearched tabIndex={0}>
                 <div className="flex justify-center mt-10">
                 <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
@@ -29,9 +29,9 @@ function About () {
     aboutData = aboutData.substr (2, aboutData.length - 6)
 
     return (
-        <Citysearched>
+        <Citysearched tabIndex={0}>
                 <div className=" px-12 mt-12 text-gray-800">
-                <p className=" text-5xl mb-5 font-sofia">About</p>
+                <p className=" text-5xl mb-5 font-sofia w-full flex justify-center mt-10">About</p>
                     {aboutData}
                 </div>
         </Citysearched>

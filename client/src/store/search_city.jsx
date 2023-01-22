@@ -8,6 +8,9 @@ const useCityStore = create((set) => ({
     longitude: "",
     restaurants : [],
     description : "",
+    fetchedAbout : null,
+    fetchedRestaurants : null,
+    fetchedHotels : null,
     addRestaurant : (restaurant) => set(state => [...state.restaurants, restaurant]),
     addCity: (city) => set((state) => ({ city_name: city })),
     addTemp :(temp)=> set((state) => ({ temp: temp })),
@@ -16,6 +19,9 @@ const useCityStore = create((set) => ({
     setDescription : (description)=>set(state => ({description : description})),
     changeIsLoading : ()=> set(state => ({isLoading : state.isLoading + 1})),
     resetIsLoading : ()=>set(state => ({isLoading : 0})),
+    setFetchedAbout : (data) => set(state => ({ fetchedAbout : data})),
+    setFetchedRestaurants : (data) => set(state => ({ fetchedRestaurants : data})),
+    setFetchedHotels : (data) => set(state => ({ fetchedHotels : data})),
   }))
 
 export default useCityStore;

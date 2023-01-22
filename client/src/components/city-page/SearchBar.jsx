@@ -11,6 +11,7 @@ function SearchBar () {
     const resetIsLoading = useCityStore(state => state.resetIsLoading);
     const navigate = useNavigate();
 
+
     function clickHandleChange (e) {
         setCity(e.target.value);
         console.log(e.target.value);
@@ -32,7 +33,7 @@ function SearchBar () {
         <nav className=" flex justify-between px-16 items-center h-20">
             <div>icon</div>
             <input 
-            className=" rounded-full w-3/12 h-8 outline-none p-2"
+            className=" rounded-full w-3/12 h-8 outline-none p-2 text-lg font-light pl-8"
             onChange={clickHandleChange}
             onKeyPress={searchLocation}
             type="text"

@@ -22,7 +22,7 @@ function Restaurant () {
 
     if (fetchedRestaurants===null) {
         return (
-        <Citysearched>
+        <Citysearched tabIndex={2}>
             <div className="flex justify-center my-10">
             <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
@@ -32,9 +32,9 @@ function Restaurant () {
 
 
     return (
-        <Citysearched>
+        <Citysearched tabIndex={2}>
         <div className="container">
-        <p className=" text-5xl mb-5 font-sofia">Restaurants</p>
+        <p className=" text-5xl mb-5 font-sofia w-full flex justify-center mt-10">Restaurants</p>
             <div className="List">
             {
                 fetchedRestaurants.map(rest => {

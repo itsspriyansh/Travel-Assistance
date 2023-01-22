@@ -10,36 +10,40 @@ function About () {
     const latitude = useCityStore(state => state.latitude)
     const longitude = useCityStore(state => state.longitude)
     const city = useCityStore(state => state.city_name)
-    const [fetchedHotels, setFetchedHotels] = useState(null)
+    const [fetchedHotelsLocal, setFetchedHotelsLocal] = useState(null)
+    const fetchedHotels = useCityStore(state => state.fetchedHotels)
+    const setFetchedHotels = useCityStore(state => state.setFetchedHotels)
 
     useEffect (() => {
         (async () => {
             const data = await getHotelData(latitude.latitude, longitude.longitude)
+            setFetchedHotelsLocal(data)
             setFetchedHotels(data)
         })()
-      }, [city])
-
-    if (fetchedHotels == null) {       
+    }, [city])
+    
+    if (fetchedHotelsLocal == null) {       
         return (
-            <Citysearched>
+            <Citysearched tabIndex={1}>
             <div className="flex justify-center mt-10">
                 <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
             </Citysearched>
         )
     }
-
+    console.log (fetchedHotels)
     return (
-        <Citysearched>
+        <Citysearched tabIndex={1}>
+            <p className=" text-5xl mb-5 font-sofia w-full flex justify-center mt-10">Hotels</p>
             {
                 fetchedHotels.result.map(hotel => {
                     return (
                         <HotelCard 
-                            properties = {hotel}
+                        properties = {hotel}
                         />
-                    )
-                })
-            }
+                        )
+                    })
+                }
         </Citysearched>
     )
 }

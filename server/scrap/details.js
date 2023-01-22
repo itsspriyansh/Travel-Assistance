@@ -118,6 +118,28 @@ app.get('/about/:city', (req, res) => {
     scrapeData();
 })
 
+app.get('/city_images/:city', async (req, res) => {
+    city = req.params.city;
+  try {
+    const response = await axios.get(`https://www.shutterstock.com/search/${city}`);
+    const $ = cheerio.load(response.data);
+
+    const imageLinks = [];
+
+    $('img').each((index, element) => {
+      const src = $(element).attr('src');
+      if (src) {
+        imageLinks.push(src);
+      }
+    });
+
+    res.json({ imageLinks });
+    console.log({imageLinks})
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
 app.listen(5000,()=>{
     console.log("server is running on port 5000");
 })

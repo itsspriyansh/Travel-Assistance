@@ -5,3 +5,12 @@ ul {
     margin: 0 auto;
 }
 
+.navigation ul li {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.navigation ul li:hover {
+    color: rgb(61, 122, 102);
+}
+

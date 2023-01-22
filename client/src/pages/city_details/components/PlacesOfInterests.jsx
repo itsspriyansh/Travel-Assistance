@@ -17,14 +17,17 @@ function About () {
 
     if (fetchedPlaces == null) {
         return (
-            <Citysearched>
-                loading...
+            <Citysearched tabIndex={3}>
+            <div className="flex justify-center mt-10">
+                <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
             </Citysearched>
         )
     }
 
     return (
-        <Citysearched>
+        <Citysearched tabIndex={3}>
+                <p className=" text-5xl mb-5 font-sofia w-full flex justify-center mt-10">Places of Interest</p>
             {
                 JSON.stringify(fetchedPlaces)
             }

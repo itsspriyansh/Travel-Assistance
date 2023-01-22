@@ -32,12 +32,13 @@ function Header () {
                 <div className=" h-3/5"></div>
                 
                     <input 
-                    className=" rounded-full w-5/12 h-12 ml-auto mr-auto block outline-none p-2" 
+                    className=" rounded-full w-5/12 h-12 ml-auto mr-auto block outline-none p-2 text-lg font-light pl-8" 
                     onChange={clickHandleChange}
                     onKeyPress={searchLocation}
                     type="text"
                     value={city}
                     name="city"
+                    placeholder="search..."
                     />
 
 
@@ -47,5 +48,4 @@ function Header () {
 }
 
 export default Header
-
 
