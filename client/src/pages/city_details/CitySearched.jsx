@@ -25,6 +25,8 @@ export default function Citysearched (props) {
         })()
     }, [cityName])
 
+    console.log (backdrop)
+
 
     if (cityImage == null) {
         return (
@@ -46,7 +48,7 @@ export default function Citysearched (props) {
                                 {props.children}
                             </div>
                             <div className=" w-72">
-                                {/* <Weather /> */}
+                                <Weather />
                             </div>
     
                         </div>
@@ -62,7 +64,7 @@ export default function Citysearched (props) {
         <>  
         <Layout>
             <div className=" flex flex-col justify-between">
-            <SearchBar />
+            <SearchBar setBackdrop={setBackdrop} />
                 <div className=" bg-white h-full relative box-content pb-12">
                     <div className="w-full h-96 overflow-hidden">
                         <img className="h-full w-full object-cover" src={cityImage[0]} />
