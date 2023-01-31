@@ -106,7 +106,7 @@ app.get('/about/:city', (req, res) => {
             const about = []
             
             const detail = $("p").first().text();
-            console.log("detail:", detail);
+            // console.log("detail:", detail);
             about.push (detail)
             res.json(about)
 
@@ -117,6 +117,22 @@ app.get('/about/:city', (req, res) => {
 
     scrapeData();
 })
+
+
+// app.get('/about/:city', (req, res)=>{
+//     const City = req.params.city
+//     const scrateData = () => {
+//         fetch(`https://simple.m.wikipedia.org/wiki/${City}`)
+//         .then(response => {
+//             const $ = cheerio.load(response.data);
+//             const about = []
+//             const detail = $("p").first().text();
+//             about.push (detail)
+//             res.json(about)            
+//         })
+//     }
+// })
+
 
 app.get('/city_images/:city', async (req, res) => {
     city = req.params.city;

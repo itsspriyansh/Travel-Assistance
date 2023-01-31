@@ -21,7 +21,7 @@ export const getHotelData = (latitude,longitude) => {
             children_ages: '5,0'
           },
           headers: {
-            'X-RapidAPI-Key': '22f73b73famsh309f192d9633dd0p1ca9afjsn3db70240ead7',
+            'X-RapidAPI-Key': '045e586fe2msh853ce575737549fp199bebjsnab82dcbfafbe',
             'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
           }
     })

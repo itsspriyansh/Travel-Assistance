@@ -8,6 +8,7 @@ function About () {
 
     const city = useCityStore(state => state.city_name)
     const [fetchedCityAbout, setFetchedCityAbout] = useState(null)
+    
     useEffect (() => {
         (async () => {
             const data = await getCityAbout(city.city)

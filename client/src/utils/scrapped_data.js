@@ -26,14 +26,22 @@ const getCityImages = (city) => {
     })
 }
 
-const getCityAbout = (city) => {
+const getCityAbout = city => {
     let URL = `http://localhost:5000/about/${city}`
-    return axios.get(URL)
-    .then (response => {
-        console.log (response.data)
-        return response.data
-    })
+    return fetch (URL)
+    .then(response => response.json())
+    .then(data => data)
 }
+
+
+// const getCityAbout = (city) => {
+//     let URL = `http://localhost:5000/about/${city}`
+//     return axios.get(URL)
+//     .then (response => {
+//         console.log (response.data)
+//         return response.data
+//     })
+// }
 
 export {getallrestaurants, getallplacestovisit, getCityAbout, getCityImages};
 

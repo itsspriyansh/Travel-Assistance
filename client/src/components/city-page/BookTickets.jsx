@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { TiSocialLinkedinCircular } from "react-icons/ti"
 import useCityStore from "../../store/search_city"
 
 function BookTickets () {
