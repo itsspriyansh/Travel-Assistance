@@ -10,7 +10,7 @@ import useCityStore from './store/search_city';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Citysearched from './pages/city_details/CitySearched';
-import TestPage from './components/city-page/TestPage';
+import TestPage from './pages/city_details/TestPage';
 
 function App() {
   const city = useCityStore((state) => state.city_name);
@@ -54,13 +54,13 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-        <Route path="/city">
-            {/* <Route index element={<TestPage />} /> */}
-            <Route index element={<Citysearched />} />
+        <Route path="/:city">
+            <Route index element={<TestPage />} />
+            
+            {/* <Route index element={<Citysearched />} /> */}
             <Route path="about" element={<About />} />
             <Route path="hotels" element={<Hotels />} />
             <Route path="restaurants" element={<Restaurants />} />
-            <Route path="hospitals" element={<Hospitals />} />
             <Route path="places-of-interest" element={<PlacesOfInterests />} />
         </Route>
 

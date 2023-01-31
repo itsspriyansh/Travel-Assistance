@@ -13,39 +13,39 @@ import { useParams } from "react-router-dom";
 
 export default function Citysearched (props) {
 
-    // // Nested routing modifications -------------------------------------------
+    // Nested routing modifications -------------------------------------------
 
-    // const param = useParams()
-    // const cityName = param.city
-    // const newcityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    const param = useParams()
+    const cityName = param.city
+    const newcityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
 
-    // const [cityImage, setCityImage] = useState(null)
-    // const [backdrop, setBackdrop] = useState(false)
-    
-    // useEffect (() => {
-    //     (async () => {
-    //         const data = await getCityImages(cityName)
-    //         setCityImage(data.imageLinks)
-    //     })()
-    // }, [cityName])
-
-    // // ------------------------------------------------------------------------
-
-
-    
-
-
-    let cityName = useCityStore(state => state.city_name)
-    const newcityName = cityName.city.charAt(0).toUpperCase() + cityName.city.slice(1);
     const [cityImage, setCityImage] = useState(null)
     const [backdrop, setBackdrop] = useState(false)
     
     useEffect (() => {
         (async () => {
-            const data = await getCityImages(cityName.city)
+            const data = await getCityImages(cityName)
             setCityImage(data.imageLinks)
         })()
     }, [cityName])
+
+    // ------------------------------------------------------------------------
+
+
+    
+
+
+    // let cityName = useCityStore(state => state.city_name)
+    // const newcityName = cityName.city.charAt(0).toUpperCase() + cityName.city.slice(1);
+    // const [cityImage, setCityImage] = useState(null)
+    // const [backdrop, setBackdrop] = useState(false)
+    
+    // useEffect (() => {
+    //     (async () => {
+    //         const data = await getCityImages(cityName.city)
+    //         setCityImage(data.imageLinks)
+    //     })()
+    // }, [cityName])
 
 
     if (cityImage == null) {
