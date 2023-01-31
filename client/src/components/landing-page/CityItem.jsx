@@ -4,6 +4,8 @@ import useCityStore from "../../store/search_city";
 
 function CityItem ({name, image}) {
 
+    const cityPagePath = `${name}/about`
+
     const addCity = useCityStore(state => state.addCity)
     const setCity = useCityStore(state => state.setCity)
     const clickHandler = () => {
@@ -24,7 +26,8 @@ function CityItem ({name, image}) {
                 <div className="flex justify-center">
                     <button className=" rounded-full bg-white px-8 py-2" onClick={clickHandler}>
                         {/* <Link to="/about">Discover</Link> */}
-                        <Link to="/city/about">Discover</Link>
+                        {/* <Link to="/city/about">Discover</Link> */}
+                        <Link to={cityPagePath}>Discover</Link>
                     </button>
                 </div>
             </div>

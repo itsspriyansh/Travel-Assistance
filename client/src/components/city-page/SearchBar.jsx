@@ -25,7 +25,7 @@ function SearchBar (props) {
           clear();
           resetIsLoading();
         //   navigate("/about");
-            navigate("/city/about")
+            navigate(`../../${city}/about`)
         }
     }
 

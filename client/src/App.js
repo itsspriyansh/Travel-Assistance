@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import LandingPage from "./pages/LandingPage";
 import Hospitals from './pages/city_details/components/Hospitals';
 import Hotels from './pages/city_details/components/Hotels';
@@ -12,7 +12,11 @@ import axios from 'axios';
 import Citysearched from './pages/city_details/CitySearched';
 import TestPage from './pages/city_details/TestPage';
 
+
 function App() {
+
+  // const { city } = useParams()
+
   const city = useCityStore((state) => state.city_name);
   console.log(city.city);
   const setIcon = useCityStore(state => state.setIcon)
@@ -23,6 +27,7 @@ function App() {
   const setDescription = useCityStore(state => state.setDescription)
 
   useEffect (()=> {
+    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4bc833dea642dd07a0351cee82fb0cf8`
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.city}&appid=4bc833dea642dd07a0351cee82fb0cf8`
 
       axios.get(url).then(response => {
@@ -55,9 +60,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
 
         <Route path="/:city">
-            <Route index element={<TestPage />} />
-            
-            {/* <Route index element={<Citysearched />} /> */}
+            <Route index element={<Citysearched />} />
             <Route path="about" element={<About />} />
             <Route path="hotels" element={<Hotels />} />
             <Route path="restaurants" element={<Restaurants />} />

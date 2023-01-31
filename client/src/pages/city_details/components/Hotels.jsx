@@ -4,12 +4,15 @@ import { useEffect, useState } from "react"
 import { getHotelData } from "../../../utils/api"
 import useCityStore from "../../../store/search_city"
 import "./Hotels.css"
+import { useParams } from "react-router-dom"
 
 function About () {
 
+    const { city } = useParams()
+
     const latitude = useCityStore(state => state.latitude)
     const longitude = useCityStore(state => state.longitude)
-    const city = useCityStore(state => state.city_name)
+    // const city = useCityStore(state => state.city_name)
     const [fetchedHotelsLocal, setFetchedHotelsLocal] = useState(null)
     const fetchedHotels = useCityStore(state => state.fetchedHotels)
     const setFetchedHotels = useCityStore(state => state.setFetchedHotels)

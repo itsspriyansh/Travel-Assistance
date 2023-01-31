@@ -11,13 +11,13 @@ import "./citySearched.css"
 import BookTickets from "../../components/city-page/BookTickets";
 import { useParams } from "react-router-dom";
 
-export default function Citysearched (props) {
+export default function TestPage (props) {
 
     // Nested routing modifications -------------------------------------------
 
     const param = useParams()
     const cityName = param.city
-    const newcityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    const newCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
 
     const [cityImage, setCityImage] = useState(null)
     const [backdrop, setBackdrop] = useState(false)
@@ -32,22 +32,6 @@ export default function Citysearched (props) {
     // ------------------------------------------------------------------------
 
 
-    
-
-
-    // let cityName = useCityStore(state => state.city_name)
-    // const newcityName = cityName.city.charAt(0).toUpperCase() + cityName.city.slice(1);
-    // const [cityImage, setCityImage] = useState(null)
-    // const [backdrop, setBackdrop] = useState(false)
-    
-    // useEffect (() => {
-    //     (async () => {
-    //         const data = await getCityImages(cityName.city)
-    //         setCityImage(data.imageLinks)
-    //     })()
-    // }, [cityName])
-
-
     if (cityImage == null) {
         return (
             <>  
@@ -59,7 +43,7 @@ export default function Citysearched (props) {
                             <div className=" bg-black h-full w-full"></div>
                         </div>
                         <div className="h-96 w-full absolute bg-black opacity-50 z-10 top-0 flex justify-center items-center">
-                            <p className=" text-opacity-100 text-white font-sofia text-8xl">{newcityName}</p>
+                            <p className=" text-opacity-100 text-white font-sofia text-8xl">{newCityName}</p>
                         </div>
                         <div className="flex justify-between mx-3 my-3">
     
@@ -90,7 +74,7 @@ export default function Citysearched (props) {
                         <img className="h-full w-full object-cover" src={cityImage[0]} />
                     </div>
                     <div className="h-96 w-full absolute bg-black opacity-50 z-10 top-0 flex justify-center items-center">
-                        <p className=" text-opacity-100 text-white font-sofia text-8xl">{newcityName}</p>
+                        <p className=" text-opacity-100 text-white font-sofia text-8xl">{newCityName}</p>
                     </div>
                     <div className="flex justify-between mx-3 my-3">
 
@@ -111,4 +95,3 @@ export default function Citysearched (props) {
         </>
     )
 }
-

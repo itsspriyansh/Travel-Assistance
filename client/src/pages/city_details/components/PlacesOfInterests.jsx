@@ -3,14 +3,18 @@ import Citysearched from "../CitySearched"
 import { getallplacestovisit } from "../../../utils/scrapped_data"
 import { useState } from "react"
 import useCityStore from "../../../store/search_city"
+import { useParams } from "react-router-dom"
 
 function About () {
 
+    const { city } = useParams()
+
     const [fetchedPlaces, setFetchedPlaces] = useState(null)
-    const city = useCityStore(state => state.city_name)
+    // const city = useCityStore(state => state.city_name)
     useEffect(()=>{
         (async () => {
-            const data = await getallplacestovisit(city.city)
+            // const data = await getallplacestovisit(city.city)
+            const data = await getallplacestovisit(city)
             setFetchedPlaces(data)
         })()
     },[])
