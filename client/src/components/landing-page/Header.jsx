@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import nameSvg from "./name.svg"
 
 function Header () {
+    
     const [city, setCity] = React.useState("");
     const addCity = useCityStore((state)=> state.addCity);
     const navigate = useNavigate();
@@ -20,7 +21,8 @@ function Header () {
           addCity({city: city});
           clear();
           resetIsLoading();
-          navigate("/about");
+        //   navigate("/about");
+            navigate(`/${city}/about`)
         }
     }
 

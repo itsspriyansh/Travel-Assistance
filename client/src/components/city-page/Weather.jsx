@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Weather.css'
 import useCityStore from '../../store/search_city'
 
 function Weather() {
 
-  const isLoading = useCityStore(state => state.isLoading)
   const temp = useCityStore (state => state.temp)
   const description = useCityStore(state => state.description)
   const icon = useCityStore(state => state.icon)
