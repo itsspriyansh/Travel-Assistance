@@ -15,12 +15,12 @@ function SearchBar (props) {
 
     function clickHandleChange (e) {
         setCity(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
     const searchLocation = (event) => {
         if(event.key === 'Enter'){
-          console.log("searchedCity");
+        //   console.log("searchedCity");
           addCity({city: city});
           clear();
           resetIsLoading();

@@ -67,7 +67,7 @@ app.get('/restaurants/:city',(req,res) => {
         res.json(total);
     })  
         .catch((error) => {
-        console.log(error);
+        // console.log(error);
     });
 });
 
@@ -86,12 +86,12 @@ app.get('/places_to_visit/:city',(req,res)=>{
             const item = $(el).find('h3').text();
                 places.push(item);
         });
-        console.log(places);
+        // console.log(places);
         res.json(places);
 
     })  
         .catch((error) => {
-        console.log(error);
+        // console.log(error);
     });
 })
 
@@ -111,7 +111,7 @@ app.get('/about/:city', (req, res) => {
             res.json(about)
 
         } catch (error) {
-            console.log("Error while scraping data:", error);
+            // console.log("Error while scraping data:", error);
         }
     }
 
@@ -150,13 +150,11 @@ app.get('/city_images/:city', async (req, res) => {
     });
 
     res.json({ imageLinks });
-    console.log({imageLinks})
+    // console.log({imageLinks})
   } catch (error) {
     res.json({ error });
   }
 });
 
-app.listen(5000,()=>{
-    console.log("server is running on port 5000");
-})
+module.exports = app
 

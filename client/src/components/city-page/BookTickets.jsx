@@ -18,7 +18,7 @@ function BookTickets () {
     const setFromHandler = e => {
         e.preventDefault()
         setFrom(e.target.value)
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
 
     useEffect(()=>{

@@ -1,22 +1,23 @@
 import Citysearched from "../CitySearched"
-import useCityStore from "../../../store/search_city"
 import { getallrestaurants } from "../../../utils/scrapped_data"
 import { useState } from "react";
 import { useEffect } from "react";
 import RestaurantCard from "./RestaurantCard.jsx";
 import "./Restaurant.css";
+import { useParams } from "react-router-dom";
 
 
 function Restaurant () {
 
-    const city = useCityStore(state => state.city_name);
+    const { city } = useParams()
+
     const [fetchedRestaurants,setFetchedRestaurants] = useState(null);
     useEffect(()=>{
         (async ()=>{
-            const data = await getallrestaurants(city.city)
+            const data = await getallrestaurants(city)
             setFetchedRestaurants(data)
         })();
-    },[])
+    }, [])
 
 
     if (fetchedRestaurants===null) {

@@ -7,8 +7,8 @@ function Weather() {
   const temp = useCityStore (state => state.temp)
   const description = useCityStore(state => state.description)
   const icon = useCityStore(state => state.icon)
-  console.log (temp)
-  console.log (description.description)
+  // console.log (temp)
+  // console.log (description.description)
 
     return (
       <div className='weather flex flex-col justify-start items-center gap-5 pt-16'>
