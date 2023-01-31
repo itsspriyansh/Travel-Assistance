@@ -20,7 +20,8 @@ function Header () {
           addCity({city: city});
           clear();
           resetIsLoading();
-          navigate("/about");
+        //   navigate("/about");
+            navigate("/city/about")
         }
     }
 
