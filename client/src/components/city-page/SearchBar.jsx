@@ -29,8 +29,6 @@ function SearchBar (props) {
         }
     }
 
-    // const bookTicketsHandler = () => props.setBackdrop(true)
-
     const clear = () => setCity("");
 
     return (
@@ -43,7 +41,6 @@ function SearchBar (props) {
             </div>
 
             <div className=" w-5/12 flex justify-around">
-            {/* <button className="text-white" onClick={bookTicketsHandler}></button>     */}
             <input 
             className=" rounded-full w-8/12 h-8 outline-none p-2 text-lg font-light pl-4"
             onChange={clickHandleChange}

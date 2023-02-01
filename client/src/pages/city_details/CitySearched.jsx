@@ -4,25 +4,17 @@ import SearchBar  from "../../components/city-page/SearchBar";
 import Layout from "../../components/city-page/Layout";
 import Footer from "../../components/landing-page/Footer";
 import Weather from "../../components/city-page/Weather";
-import useCityStore from "../../store/search_city";
 import { useEffect, useState } from "react";
 import { getCityImages } from "../../utils/scrapped_data";
 import "./citySearched.css"
 import BookTickets from "../../components/city-page/BookTickets";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 
 export default function CitySearched (props) {
 
     const param = useParams()
     const cityName = param.city
     const newCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
-
-    const setIcon = useCityStore(state => state.setIcon)
-    const addTemp = useCityStore(state => state.addTemp)
-    const addLatitude = useCityStore(state => state.addLatitude)
-    const addLongitude = useCityStore(state => state.addLongitude)
-    const setDescription = useCityStore(state => state.setDescription)
 
     const [cityImage, setCityImage] = useState(null)
     const [backdrop, setBackdrop] = useState(false)
@@ -33,18 +25,6 @@ export default function CitySearched (props) {
             setCityImage(data.imageLinks)
         })()
     }, [cityName])
-        
-    // useEffect (()=> {
-    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4bc833dea642dd07a0351cee82fb0cf8`
-    
-    //       axios.get(url).then(response => {
-    //         addTemp({temp : response.data.main.temp})
-    //         addLatitude({latitude : response.data.coord.lat})
-    //         addLongitude({longitude : response.data.coord.lon})
-    //         setDescription(response.data.weather[0].main)
-    //         setIcon(response.data.weather[0].icon)
-    //       })
-    //   }, [cityName])
 
 
     if (cityImage == null) {

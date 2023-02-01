@@ -1,6 +1,5 @@
 import React from 'react'
 import './Weather.css'
-// import useCityStore from '../../store/search_city'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
