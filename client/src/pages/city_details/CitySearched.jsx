@@ -14,8 +14,6 @@ import axios from "axios";
 
 export default function CitySearched (props) {
 
-    // Nested routing modifications -------------------------------------------
-
     const param = useParams()
     const cityName = param.city
     const newCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
@@ -36,21 +34,17 @@ export default function CitySearched (props) {
         })()
     }, [cityName])
         
-        
-    useEffect (()=> {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4bc833dea642dd07a0351cee82fb0cf8`
+    // useEffect (()=> {
+    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4bc833dea642dd07a0351cee82fb0cf8`
     
-          axios.get(url).then(response => {
-            addTemp({temp : response.data.main.temp})
-            addLatitude({latitude : response.data.coord.lat})
-            addLongitude({longitude : response.data.coord.lon})
-            setDescription(response.data.weather[0].main)
-            setIcon(response.data.weather[0].icon)
-          })
-      }, [cityName])
-
-    // ------------------------------------------------------------------------
-
+    //       axios.get(url).then(response => {
+    //         addTemp({temp : response.data.main.temp})
+    //         addLatitude({latitude : response.data.coord.lat})
+    //         addLongitude({longitude : response.data.coord.lon})
+    //         setDescription(response.data.weather[0].main)
+    //         setIcon(response.data.weather[0].icon)
+    //       })
+    //   }, [cityName])
 
 
     if (cityImage == null) {
