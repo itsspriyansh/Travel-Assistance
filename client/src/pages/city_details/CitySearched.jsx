@@ -17,7 +17,6 @@ export default function CitySearched (props) {
     const newCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
 
     const [cityImage, setCityImage] = useState(null)
-    const [backdrop, setBackdrop] = useState(false)
     
     useEffect (() => {
         (async () => {
@@ -32,7 +31,7 @@ export default function CitySearched (props) {
             <>  
             <Layout>
                 <div className=" flex flex-col justify-between">
-                <SearchBar setBackdrop={setBackdrop} />
+                <SearchBar />
                     <div className=" bg-white h-full relative box-content pb-12">
                         <div className="w-full h-96 overflow-hidden">
                             <div className=" bg-black h-full w-full"></div>
@@ -63,10 +62,10 @@ export default function CitySearched (props) {
         <>  
         <Layout>
             <div className=" flex flex-col justify-between">
-            <SearchBar setBackdrop={setBackdrop} />
+            <SearchBar />
                 <div className=" bg-white h-full relative box-content pb-12">
                     <div className="w-full h-96 overflow-hidden">
-                        <img className="h-full w-full object-cover" src={cityImage[0]} />
+                        <img className="h-full w-full object-cover" src={cityImage[0]} alt="" />
                     </div>
                     <div className="h-96 w-full absolute bg-black opacity-50 z-10 top-0 flex justify-center items-center">
                         <p className=" text-opacity-100 text-white font-sofia text-8xl">{newCityName}</p>

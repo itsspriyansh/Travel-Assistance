@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const getallrestaurants = async(city)=>{
+    console.log(process.env.API_BASE_URL)
     return axios.get(`http://localhost:5000/restaurants/${city}`)
     .then((response)=>{
         // console.log(response.data);
@@ -33,15 +34,4 @@ const getCityAbout = city => {
     .then(data => data)
 }
 
-
-// const getCityAbout = (city) => {
-//     let URL = `http://localhost:5000/about/${city}`
-//     return axios.get(URL)
-//     .then (response => {
-//         console.log (response.data)
-//         return response.data
-//     })
-// }
-
 export {getallrestaurants, getallplacestovisit, getCityAbout, getCityImages};
-

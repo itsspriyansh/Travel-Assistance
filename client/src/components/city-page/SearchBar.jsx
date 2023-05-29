@@ -5,7 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import logoSvg from "./logo.svg"
 
 
-function SearchBar (props) {
+function SearchBar () {
 
     const [city, setCity] = React.useState("");
     const addCity = useCityStore((state)=> state.addCity);
@@ -36,7 +36,7 @@ function SearchBar (props) {
         <nav className=" flex justify-between px-16 items-center h-20">
             <div>
                 <Link to="/">
-                <img className=" h-10" src={logoSvg}></img>
+                <img className=" h-10" src={logoSvg} alt=""></img>
                 </Link>
             </div>
 

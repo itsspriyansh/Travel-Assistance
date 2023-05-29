@@ -118,20 +118,34 @@ app.get('/about/:city', (req, res) => {
     scrapeData();
 })
 
+app.get("/testing", async (req, res) => {
+    try {
+        const response = await axios.get(`https://www.shutterstock.com/search/jaipur`)
+        const $ = cheerio.load(response.data)
+        const list = []
 
-// app.get('/about/:city', (req, res)=>{
-//     const City = req.params.city
-//     const scrateData = () => {
-//         fetch(`https://simple.m.wikipedia.org/wiki/${City}`)
-//         .then(response => {
-//             const $ = cheerio.load(response.data);
-//             const about = []
-//             const detail = $("p").first().text();
-//             about.push (detail)
-//             res.json(about)            
-//         })
-//     }
-// })
+        const tagline = $(".mui-3nl4cpc-gridContainer-root div")
+        tagline.each((index, element) => {
+            const item = $(element).attr("src")
+            list.push(item)
+        })
+        console.log(list)
+
+        res.send("break")
+
+        // tagline.each((index, element) => {
+            
+        // })
+
+        $("img").each((index, element) => {
+          const link = $(element).attr("src")
+          list.push(link)  
+        })
+        res.status(200).json(list)
+    } catch (error) {
+        res.status(500).json({error : error.message})
+    }
+})
 
 
 app.get('/city_images/:city', async (req, res) => {
